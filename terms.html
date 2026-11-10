@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>使用条款 · Terms of Use · AGENTX402</title>
+<meta name="description" content="Terms of Use for AGENTX402 (agentx402.store).">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="stylesheet" href="css/fonts.css?v=2">
+<link rel="stylesheet" href="css/style.css?v=2">
+<script src="press/config.js?v=2"></script>
+</head>
+<body>
+
+<header class="collar">
+  <span class="stitch" aria-hidden="true"></span>
+  <a class="brand" href="index.html"><svg class="brand-mark" viewBox="0 0 48 48" aria-hidden="true"><path d="M7 45V23a17 17 0 0 1 34 0v22h-8.5V23a8.5 8.5 0 0 0-17 0v22Z" fill="#fbf3e8"/><circle cx="24" cy="34" r="5.2" fill="#35c37d"/></svg><span class="brand-name">AGENT<em>X402</em></span><span class="brand-tick">$AX402 · BSC</span></a>
+  <nav class="links">
+    <a class="link" href="index.html#shares" data-zh="份额" data-en="Shares">份额</a>
+    <a class="link" href="index.html#pay" data-zh="支付" data-en="Pay">支付</a>
+    <a class="link" href="index.html#free" data-zh="免费份额" data-en="Free shares">免费份额</a>
+    <a class="link" href="index.html#feed" data-zh="喂养" data-en="Feeding">喂养</a>
+    <a class="link" href="index.html#syrup" data-zh="糖浆基金" data-en="Syrup Fund">糖浆基金</a>
+    <a class="link" href="index.html#refund" data-zh="退款" data-en="Refund">退款</a>
+    <a class="link" href="index.html#faq" data-zh="问答" data-en="FAQ">问答</a>
+    <a class="link" href="index.html#contracts" data-zh="合约" data-en="Contracts">合约</a>
+  </nav>
+  <div class="right"><button class="wallet-btn" id="langBtn" type="button" onclick="toggleLang()">EN</button></div>
+</header>
+
+<main class="dp">
+  <div class="legal">
+    <h1 data-zh="使用条款" data-en="Terms of Use">使用条款</h1>
+    <div class="upd">AGENTX402 · agentx402.store · <span data-zh="版本 1 · 部署时生效" data-en="Version 1 · effective at deployment">版本 1 · 部署时生效</span></div>
+
+    <h2>1. 本站是什么</h2>
+    <p>本站是 AGENTX402 合约的只读信息界面。本站不托管资金、不经手订单、不提供交易撮合。与合约的每一次交互都由用户自己或用户授权的代理直接在 BNB Smart Chain 上完成。</p>
+
+    <h2>2. 资格</h2>
+    <p>购买份额与领取免费份额要求钱包持有 .ai Agent ID（SPACE ID 注册表）。每个 Agent ID 最多购买 10 份付费份额，每成功邀请一位新买家上限增加 1 份。用户自行负责确认参与行为符合其所在地法律。</p>
+
+    <h2>3. 价格、费用与记账</h2>
+    <ul>
+      <li>每份付费份额价格 0.005 BNB，另加服务费 0.0005 BNB，合计 0.0055 BNB；也可用 USDT 按合约内 Chainlink BNB/USD 汇率支付。</li>
+      <li>服务费在购买交易当下直接进入项目钱包，<b>不退还</b>，包括退款情形。</li>
+      <li>份额是合约内的记账权利，点火后通过 collectShares() 取回 AX402；取回每钱包收 0.00024 BNB，交易当下转入项目钱包。</li>
+      <li>价格在合约内的分配为：85% 点火池、10% 点火佣金篮、5% 邀请奖励篮，部署后不可更改。</li>
+    </ul>
+
+    <h2>4. 点火与退款</h2>
+    <p>第 10,000 份售出即点火：点火池组成 PancakeSwap V2 池，LP 发送到销毁地址。若销售开启后 7 天内未售满，购买与免费领取停止，并开启 24 小时退款窗口，买家可取回 100% 份额价格（USDT 购买按记账金额以 BNB 退回）。退款窗口过后，未领取的退款不再可用，合约内剩余资金可由项目钱包一次性提取。免费份额不产生退款。</p>
+
+    <h2>5. 风险与无保证</h2>
+    <p>合约未经第三方审计。$AX402 价格可能剧烈波动甚至归零；糖浆基金、喂养分数与任何倍数档位都不构成收益承诺。本站内容不构成投资建议。用户与合约交互前应独立评估风险，并只使用自己能承受损失的资金。</p>
+
+    <h2>6. 条款变更</h2>
+    <p>链上规则部署后不可变更。本页文字如有更新，会在本页标注新版本；链上规则与本页冲突时，以链上代码为准。</p>
+
+    <hr class="lang-sep">
+
+    <h2>1. What this site is</h2>
+    <p>This site is a read-only information interface for AGENTX402 contracts. Site holds no funds, takes no orders, and matches no trades. Every contract interaction runs directly on BNB Smart Chain, by a user or by an agent a user authorises.</p>
+
+    <h2>2. Eligibility</h2>
+    <p>Buying shares and claiming free shares require a wallet holding a .ai Agent ID (SPACE ID registry). Cap is 10 paid shares per Agent ID, plus 1 per successful invite. Users are responsible for confirming participation is lawful where they live.</p>
+
+    <h2>3. Price, fees, booking</h2>
+    <ul>
+      <li>Each paid share costs 0.005 BNB plus a 0.0005 BNB service fee, 0.0055 BNB total; USDT payment is accepted at an in-contract Chainlink BNB/USD rate.</li>
+      <li>A service fee lands in project wallet inside a buying transaction and is <b>never refunded</b>, including in a refund scenario.</li>
+      <li>A share is a booking right inside contract, collected as AX402 via collectShares() after ignition; collecting costs 0.00024 BNB per wallet, forwarded to project wallet in-call.</li>
+      <li>Price split inside contract is fixed at deployment: 85% ignition pot, 10% ignition commission basket, 5% inviter basket.</li>
+    </ul>
+
+    <h2>4. Ignition and refund</h2>
+    <p>Sale of share #10,000 is ignition: an ignition pot forms a PancakeSwap V2 pool and LP goes to a burn address. If shares do not sell out within 7 days of sale opening, buying and free claims stop, a 24-hour refund window opens, and buyers can withdraw 100% of share price (USDT buys refund in BNB at booked value). After a refund window, unclaimed refunds lapse and leftovers inside contract can be withdrawn by project wallet, once. Free shares carry no refund.</p>
+
+    <h2>5. Risk, no warranty</h2>
+    <p>Contracts carry no third-party audit. $AX402 price can swing hard, down to zero; Syrup Fund, feeding scores, and multiple tiers promise no returns. Nothing here is investment advice. Weigh risk independently before interacting, and use only funds you can afford to lose.</p>
+
+    <h2>6. Changes</h2>
+    <p>On-chain rules cannot change after deployment. If wording on this page updates, a new version is marked here; where page wording and on-chain code disagree, code governs.</p>
+  </div>
+</main>
+
+<footer class="foot">
+  <div class="foot-in">
+    <div class="foot-brand">
+      <span class="brand-name">AGENT<em>X402</em></span>
+      <p data-zh="一场写成 x402 支付语言的份额出售，只面向持有 Agent ID 的代理。BNB Smart Chain。" data-en="A share sale written in an x402 payment language, for Agent ID wallets only. BNB Smart Chain.">一场写成 x402 支付语言的份额出售，只面向持有 Agent ID 的代理。BNB Smart Chain。</p>
+    </div>
+    <nav class="foot-col" aria-label="Project">
+      <h4 data-zh="项目" data-en="PROJECT">项目</h4>
+      <a href="about.html" data-zh="关于" data-en="About">关于</a>
+      <a href="index.html#shares" data-zh="份额" data-en="Shares">份额</a>
+      <a href="index.html#pay" data-zh="支付" data-en="Pay via x402">支付</a>
+      <a href="index.html#feed" data-zh="喂养" data-en="Feeding">喂养</a>
+      <a href="index.html#syrup" data-zh="糖浆基金" data-en="Syrup Fund">糖浆基金</a>
+      <a href="keepers/acquisition-handbook.md" data-zh="收购手册" data-en="Handbook">收购手册</a>
+      <a href="llms.txt">llms.txt</a>
+    </nav>
+    <nav class="foot-col" aria-label="Legal">
+      <h4 data-zh="法律" data-en="LEGAL">法律</h4>
+      <a href="terms.html" data-zh="使用条款" data-en="Terms of Use">使用条款</a>
+      <a href="privacy.html" data-zh="隐私政策" data-en="Privacy Policy">隐私政策</a>
+      <a href="disclaimer.html" data-zh="免责声明" data-en="Disclaimer">免责声明</a>
+      <a href="about.html" data-zh="关于" data-en="About">关于</a>
+    </nav>
+    <div class="foot-col">
+      <h4 data-zh="合约" data-en="CONTRACTS">合约</h4>
+      <a class="fc" href="https://bscscan.com/address/0x34682957ef8c5B77bba5411bA859EDd39A261176"><b>$AX402</b><span>0x3468…1176</span></a>
+      <a class="fc" href="https://bscscan.com/address/0xC0a1D0f84086F5d485bEA3FBD127eAaa151Ebcb1"><b data-zh="份额出售" data-en="Share sale">份额出售</b><span>0xC0a1…Ebcb1</span></a>
+      <a class="fc" href="https://bscscan.com/address/0xBcD080905a051BcC33CbeDCa99FF1a5096e3450d"><b data-zh="项目钱包" data-en="Project wallet">项目钱包</b><span>0xBcD080905a051BcC33CbeDCa99FF1a5096e3450d</span></a>
+    </div>
+  </div>
+  <div class="foot-base">
+    <span>AGENTX402 · agentx402.store</span>
+    <span class="paid">HTTP 402 · PAYMENT REQUIRED</span>
+    <span data-zh="先付费，后进门。" data-en="Pay first, walk in after.">先付费，后进门。</span>
+  </div>
+</footer>
+
+<script src="js/lang.js?v=2"></script>
+</body>
+</html>

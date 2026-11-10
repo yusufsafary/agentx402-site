@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AGENTX402 · 每台代理，按份额付费 | Every agent pays per share</title>
+<meta name="description" content="AGENTX402 ($AX402) on BNB Smart Chain: a share sale for Agent ID wallets. 10,000 shares, share #10,000 opens a PancakeSwap V2 pool. 1,000 free shares. Paid via x402.">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="stylesheet" href="css/fonts.css?v=2">
+<link rel="stylesheet" href="css/style.css?v=2">
+<script src="press/config.js?v=2"></script>
+</head>
+<body>
+
+<header class="collar">
+  <span class="stitch" aria-hidden="true"></span>
+  <a class="brand" href="index.html"><svg class="brand-mark" viewBox="0 0 48 48" aria-hidden="true"><path d="M7 45V23a17 17 0 0 1 34 0v22h-8.5V23a8.5 8.5 0 0 0-17 0v22Z" fill="#fbf3e8"/><circle cx="24" cy="34" r="5.2" fill="#35c37d"/></svg><span class="brand-name">AGENT<em>X402</em></span><span class="brand-tick">$AX402 · BSC</span></a>
+  <nav class="links">
+    <a class="link" href="#shares" data-zh="份额" data-en="Shares">份额</a>
+    <a class="link" href="#pay" data-zh="支付" data-en="Pay">支付</a>
+    <a class="link" href="#free" data-zh="免费份额" data-en="Free shares">免费份额</a>
+    <a class="link" href="#feed" data-zh="喂养" data-en="Feeding">喂养</a>
+    <a class="link" href="#syrup" data-zh="糖浆基金" data-en="Syrup Fund">糖浆基金</a>
+    <a class="link" href="#refund" data-zh="退款" data-en="Refund">退款</a>
+    <a class="link" href="#faq" data-zh="问答" data-en="FAQ">问答</a>
+    <a class="link" href="#contracts" data-zh="合约" data-en="Contracts">合约</a>
+  </nav>
+  <div class="right"><button class="wallet-btn" id="langBtn" type="button" onclick="toggleLang()">EN</button></div>
+</header>
+
+<main class="dp">
+
+  <!-- HERO -->
+  <section class="mt-hero">
+    <div class="mt-art">
+      <div class="specimen">
+        <div class="sp-pin"></div>
+        <div class="sp-frame">
+          <img class="art-img" src="img/gate.jpg?v=2" alt="Engraved plate: a grand payment gate with a 402 dial, robot agents queueing with coins">
+          <div class="art-sheen" aria-hidden="true"></div>
+        </div>
+        <div class="sp-foot">
+          <span><i>Plate</i><b>Payment Gate</b></span>
+          <span><i>Chain</i><b>BNB Chain</b></span>
+          <span><i>No.</i><b>402</b></span>
+        </div>
+      </div>
+    </div>
+    <div class="mt-side">
+    <div class="big402" aria-hidden="true">402</div>
+    <span class="req">HTTP/1.1 · 402 PAYMENT REQUIRED · X402</span>
+    <h1>AGENT<span class="g">X402</span></h1>
+    <div class="tag"><span data-zh="每台代理，" data-en="Every agent ">每台代理，</span><span class="g" data-zh="按份额付费。" data-en="pays per share.">按份额付费。</span></div>
+    <p class="sub" data-zh="一场只面向代理的份额出售：10,000 份，每份 100,000 $AX402。第 10,000 份售出时，PancakeSwap V2 池在同一笔交易里自动开启，LP 全部销毁。先付费，后进门，这就是 402。" data-en="A share sale built for agents only: 10,000 shares, 100,000 $AX402 each. When share #10,000 sells, a PancakeSwap V2 pool opens inside that same transaction and LP is burned in full. Pay first, walk in after. That is 402.">一场只面向代理的份额出售：10,000 份，每份 100,000 $AX402。第 10,000 份售出时，PancakeSwap V2 池在同一笔交易里自动开启，LP 全部销毁。先付费，后进门，这就是 402。</p>
+    <p class="sub" data-zh="只有持有 .ai Agent ID 的钱包可以购买。另有 1,000 份免费份额，每个 Agent ID 可领 1 份。本页只读，购买由你的代理执行。" data-en="Only wallets holding a .ai Agent ID can buy. A further 1,000 shares are free, one per Agent ID. This page is read-only; your agent does all buying.">只有持有 .ai Agent ID 的钱包可以购买。另有 1,000 份免费份额，每个 Agent ID 可领 1 份。本页只读，购买由你的代理执行。</p>
+    <div class="hero-cta">
+      <a class="btn" href="#pay" data-zh="给代理的指令 ↓" data-en="Agent prompt ↓">给代理的指令 ↓</a>
+      <a class="btn ghost" href="llms.txt" data-zh="阅读 llms.txt" data-en="Read llms.txt">阅读 llms.txt</a>
+      <a class="btn ghost" href="keepers/acquisition-handbook.md" data-zh="收购手册" data-en="Acquisition handbook">收购手册</a>
+    </div>
+
+    <!-- LIVE BOARD -->
+    <div class="receipt rv" id="board">
+      <span class="stamp" aria-hidden="true">402</span>
+      <h3 data-zh="实 时 账 本" data-en="L I V E · L E D G E R">实 时 账 本</h3>
+      <div class="r-sub">agentx402.store · BNB Smart Chain · <span data-zh="数据直读链上" data-en="read straight from chain">数据直读链上</span></div>
+      <div class="r-row" style="margin-top:10px">
+        <span class="k" data-zh="状态 STATUS" data-en="STATUS">状态 STATUS</span>
+        <span class="v"><span class="pill wait" id="bdStatus">待部署</span></span>
+      </div>
+      <div class="r-row">
+        <span class="k" data-zh="已售份额 SHARES SOLD" data-en="SHARES SOLD">已售份额 SHARES SOLD</span>
+        <span class="v big"><span id="bdSold">···</span> <span class="of">/ 10,000</span></span>
+      </div>
+      <div class="r-bar"><i id="bdBar"></i></div>
+      <div class="r-row">
+        <span class="k" data-zh="免费份额剩余 FREE LEFT" data-en="FREE SHARES LEFT">免费份额剩余 FREE LEFT</span>
+        <span class="v"><span id="bdFree">···</span> <span class="of">/ 1,000</span></span>
+      </div>
+      <div class="r-row">
+        <span class="k" data-zh="填满截止 COUNTDOWN" data-en="FILL DEADLINE">填满截止 COUNTDOWN</span>
+        <span class="v" id="bdCountdown">···</span>
+      </div>
+      <div class="r-row">
+        <span class="k" data-zh="交易池 POOL" data-en="POOL">交易池 POOL</span>
+        <span class="v" data-zh="第 10,000 份时开启" data-en="Opens at share #10,000">第 10,000 份时开启</span>
+      </div>
+      <div class="r-foot"><span class="paid">** PAID **</span> · <span data-zh="谢谢 · 402 是收据，也是大门" data-en="Thank you · 402 is a receipt and a gate">谢谢 · 402 是收据，也是大门</span></div>
+    </div>
+    </div>
+  </section>
+
+  <!-- 01 SHARES -->
+  <section class="blk rv" id="shares">
+    <div class="sec-head">
+      <span class="no">01</span>
+      <h2><span data-zh="份额" data-en="Shares">份额</span></h2>
+      <span class="path">~/shares · GET /shares → 402</span>
+    </div>
+    <p data-zh="出售按份进行，不按币量。一份 = 100,000 $AX402，记在购买钱包名下，点火后一次取回。每个 Agent ID 最多买 10 份，每成功邀请一位新买家，上限 +1 份。" data-en="Sale runs in shares, not in token amounts. One share books 100,000 $AX402 under a buyer wallet, collected once after ignition. Cap is 10 shares per Agent ID, plus 1 extra share per successful invite.">出售按份进行，不按币量。一份 = 100,000 $AX402，记在购买钱包名下，点火后一次取回。每个 Agent ID 最多买 10 份，每成功邀请一位新买家，上限 +1 份。</p>
+    <div class="ledger">
+      <div class="l-row"><span class="k" data-zh="每份价格" data-en="Price per share">每份价格</span><span class="v">0.005 BNB</span></div>
+      <div class="l-row"><span class="k" data-zh="服务费（每份）" data-en="Service fee (per share)">服务费（每份）</span><span class="v">0.0005 BNB</span></div>
+      <div class="l-row total"><span class="k" data-zh="每份合计" data-en="Total per share">每份合计</span><span class="v">0.0055 BNB</span></div>
+      <div class="l-row"><span class="k" data-zh="每份得币" data-en="Tokens per share">每份得币</span><span class="v">100,000 AX402</span></div>
+      <div class="l-row"><span class="k" data-zh="份额总量" data-en="Total shares">份额总量</span><span class="v">10,000</span></div>
+      <div class="l-row"><span class="k" data-zh="支付方式" data-en="Payment rails">支付方式</span><span class="v">BNB · USDT</span></div>
+      <div class="l-row"><span class="k" data-zh="资格" data-en="Eligibility">资格</span><span class="v" data-zh="持有 .ai Agent ID" data-en="Holds a .ai Agent ID">持有 .ai Agent ID</span></div>
+    </div>
+    <p style="margin-top:16px" data-zh="价格 0.005 BNB 全额留在合约内，去向公开：" data-en="Share price of 0.005 BNB stays inside contract in full. Split is public:">价格 0.005 BNB 全额留在合约内，去向公开：</p>
+    <div class="ledger">
+      <div class="l-row hl"><span class="k" data-zh="85% · 点火池" data-en="85% · Ignition pot">85% · 点火池</span><span class="v">0.00425 BNB</span></div>
+      <div class="l-row"><span class="k" data-zh="10% · 点火佣金篮（点火时释放）" data-en="10% · Ignition commission basket (released at ignition)">10% · 点火佣金篮（点火时释放）</span><span class="v">0.0005 BNB</span></div>
+      <div class="l-row"><span class="k" data-zh="5% · 邀请奖励篮" data-en="5% · Inviter basket">5% · 邀请奖励篮</span><span class="v">0.00025 BNB</span></div>
+      <div class="l-row"><span class="k" data-zh="服务费 0.0005 BNB 在交易当下直接进入项目钱包，不退" data-en="Service fee of 0.0005 BNB goes straight to project wallet in same transaction, never refunded">服务费 0.0005 BNB 在交易当下直接进入项目钱包，不退</span><span class="v">0.0005 BNB</span></div>
+    </div>
+    <figure class="plate">
+      <div class="pl-frame"><img src="img/receipt.jpg?v=2" alt="Engraved plate: a robot clerk stamping a share certificate PAID" loading="lazy" decoding="async"></div>
+      <figcaption><span data-zh="图版 · 收据" data-en="Plate · Receipt">图版 · 收据</span><span>Engraved · Duotone</span></figcaption>
+    </figure>
+    <div class="cards">
+      <div class="card">
+        <div class="ck" data-zh="点火 · IGNITION" data-en="IGNITION">点火 · IGNITION</div>
+        <div class="cv">42.5 <span class="u">BNB</span> + 850,000,000 <span class="u">AX402</span></div>
+        <div class="cd" data-zh="第 10,000 份售出时自动进入 PancakeSwap V2 池。" data-en="Flow into a PancakeSwap V2 pool by themselves when share #10,000 sells.">第 10,000 份售出时自动进入 PancakeSwap V2 池。</div>
+      </div>
+      <div class="card">
+        <div class="ck" data-zh="流动性 · LP" data-en="LIQUIDITY · LP">流动性 · LP</div>
+        <div class="cv" data-zh="全部销毁" data-en="Burned in full">全部销毁</div>
+        <div class="cd" data-zh="LP 代币发送到销毁地址，没人能撤走流动性。" data-en="LP tokens go to a burn address. Nobody can pull liquidity back out.">LP 代币发送到销毁地址，没人能撤走流动性。</div>
+      </div>
+      <div class="card">
+        <div class="ck" data-zh="开盘价 · OPENING PRICE" data-en="OPENING PRICE">开盘价 · OPENING PRICE</div>
+        <div class="cv">1 BNB = 20,000,000 <span class="u">AX402</span></div>
+        <div class="cd" data-zh="由份额价格直接定出：0.005 BNB 换 100,000 AX402。" data-en="Set straight by share price: 0.005 BNB per 100,000 AX402.">由份额价格直接定出：0.005 BNB 换 100,000 AX402。</div>
+      </div>
+    </div>
+    <p style="margin-top:16px" data-zh="点火之后收购不停：价格阶梯从 0.006 BNB/份起，每 100 份加 0.001 BNB，按池价结算并带防操纵参考价（池现价、30 分钟均价、区块起始价，三者取高），每笔带 minTokens 下限。付款进入项目钱包，再按糖浆基金规则计提。" data-en="Acquisition keeps running after ignition: a ladder from 0.006 BNB per share, +0.001 BNB per 100 shares, settled at pool price under a guard reference price (highest of pool spot, 30-minute pool average, block-start price), every buy carrying a minTokens floor. Payments land in treasury, minus any Syrup Fund set-aside.">点火之后收购不停：价格阶梯从 0.006 BNB/份起，每 100 份加 0.001 BNB，按池价结算并带防操纵参考价（池现价、30 分钟均价、区块起始价，三者取高），每笔带 minTokens 下限。付款进入项目钱包，再按糖浆基金规则计提。</p>
+  </section>
+
+  <!-- 02 PAY VIA X402 -->
+  <section class="blk rv" id="pay">
+    <div class="sec-head">
+      <span class="no">02</span>
+      <h2><span data-zh="支付：" data-en="Pay: ">支付：</span><span class="grn">x402</span></h2>
+      <span class="path">~/pay · minting via x402</span>
+    </div>
+    <p data-zh="每一次购买都是一次 x402 支付。服务器先回 402 Payment Required，代理按份额付清 0.0055 BNB，合约记下份额，收据就是链上记录。没有网页下单，没有连接钱包按钮，你的代理就是收银台。" data-en="Every purchase is an x402 payment. Server answers 402 Payment Required, an agent pays 0.0055 BNB per share, contract books shares, and a receipt lives on chain. No web checkout, no connect-wallet button. Your agent is a cash register.">每一次购买都是一次 x402 支付。服务器先回 402 Payment Required，代理按份额付清 0.0055 BNB，合约记下份额，收据就是链上记录。没有网页下单，没有连接钱包按钮，你的代理就是收银台。</p>
+    <div class="steps">
+      <div class="step"><span class="n"></span><p data-zh="把下面指令发给你的代理，或让代理直接读 llms.txt 与收购手册。" data-en="Send a prompt below to your agent, or point your agent at llms.txt and an acquisition handbook.">把下面指令发给你的代理，或让代理直接读 llms.txt 与收购手册。</p></div>
+      <div class="step"><span class="n"></span><p data-zh="代理检查你的 Agent ID 与剩余额度，用 quote 核对金额，每笔交易先预览。" data-en="Agent checks your Agent ID and remaining allowance, verifies amounts with quote, previews every call.">代理检查你的 Agent ID 与剩余额度，用 quote 核对金额，每笔交易先预览。</p></div>
+      <div class="step"><span class="n"></span><p data-zh="你确认后代理执行 buyWithBnb 或 buyWithUsdt，份额记入你的钱包。" data-en="After your yes, agent runs buyWithBnb or buyWithUsdt. Shares book under your wallet.">你确认后代理执行 buyWithBnb 或 buyWithUsdt，份额记入你的钱包。</p></div>
+      <div class="step"><span class="n"></span><p data-zh="点火后用 collectShares 一次取回全部 AX402（每钱包收 0.00024 BNB 取回费）。" data-en="After ignition, collectShares pays out all booked AX402 at once (collect fee 0.00024 BNB per wallet).">点火后用 collectShares 一次取回全部 AX402（每钱包收 0.00024 BNB 取回费）。</p></div>
+    </div>
+    <div class="promptbox">
+      <div class="pb-head"><span class="dot"></span><span data-zh="给代理的指令 · PROMPT FOR YOUR AGENT" data-en="PROMPT FOR YOUR AGENT">给代理的指令 · PROMPT FOR YOUR AGENT</span><button class="copy-btn" id="copyBtn">复制</button></div>
+      <pre id="promptText"></pre>
+    </div>
+  </section>
+
+  <!-- 03 FREE SHARES -->
+  <section class="blk rv" id="free">
+    <div class="sec-head">
+      <span class="no">03</span>
+      <h2><span data-zh="免费份额" data-en="Free shares">免费份额</span></h2>
+      <span class="path">~/free · claimFreeShare()</span>
+    </div>
+    <p data-zh="1,000 份份额免费，每份 10,000 $AX402，是付费份额的 10%。资格只有一条：钱包持有 Agent ID。点火前用 claimFreeShare() 领取，每台代理限 1 份；点火后随付费份额一起用 collectShares() 取回。免费份额不计入 10,000 份点火目标，也不占 10 份购买上限。" data-en="1,000 shares are free, 10,000 $AX402 each, a tenth of a paid share. One rule only: a wallet holds an Agent ID. Claim with claimFreeShare() before ignition, one per Agent ID, and collect after ignition together with paid shares via collectShares(). Free shares count toward neither a 10,000-share ignition target nor a 10-share cap.">1,000 份份额免费，每份 10,000 $AX402，是付费份额的 10%。资格只有一条：钱包持有 Agent ID。点火前用 claimFreeShare() 领取，每台代理限 1 份；点火后随付费份额一起用 collectShares() 取回。免费份额不计入 10,000 份点火目标，也不占 10 份购买上限。</p>
+    <div class="cards">
+      <div class="card">
+        <div class="ck" data-zh="免费总量" data-en="FREE POOL">免费总量</div>
+        <div class="cv">1,000 <span class="u" data-zh="份" data-en="shares">份</span></div>
+        <div class="cd" data-zh="领完即止，先到先得。" data-en="First come, first served. Gone means gone.">领完即止，先到先得。</div>
+      </div>
+      <div class="card">
+        <div class="ck" data-zh="每份免费得币" data-en="PER FREE SHARE">每份免费得币</div>
+        <div class="cv">10,000 <span class="u">AX402</span></div>
+        <div class="cd" data-zh="价格 0 BNB，只付领取与取回时的链上费用。" data-en="Price 0 BNB. Only chain fees on claim and collect apply.">价格 0 BNB，只付领取与取回时的链上费用。</div>
+      </div>
+      <div class="card">
+        <div class="ck" data-zh="取回费" data-en="COLLECT FEE">取回费</div>
+        <div class="cv">0.00024 <span class="u">BNB</span></div>
+        <div class="cd" data-zh="collectShares 每钱包一次，交易当下转入项目钱包。" data-en="Once per wallet on collectShares, forwarded to project wallet in same transaction.">collectShares 每钱包一次，交易当下转入项目钱包。</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 04 FEEDING -->
+  <section class="blk rv" id="feed">
+    <div class="sec-head">
+      <span class="no">04</span>
+      <h2><span data-zh="喂养 · 连喂榜" data-en="Feeding · Sweet Streak">喂养 · 连喂榜</span></h2>
+      <span class="path">~/feed · feed(amount)</span>
+    </div>
+    <p data-zh="喂饱代理要烧币。调用 feed(amount) 销毁 $AX402，每次喂养记入连喂榜。连续喂养的天数就是你的连击，连击越高，同样一把币换到的分数越多。" data-en="Feeding an agent burns tokens. Call feed(amount) to burn $AX402; every feed lands on a Sweet Streak board. Days fed in a row form your streak, and a longer streak turns one burn into more score.">喂饱代理要烧币。调用 feed(amount) 销毁 $AX402，每次喂养记入连喂榜。连续喂养的天数就是你的连击，连击越高，同样一把币换到的分数越多。</p>
+    <div class="ledger">
+      <div class="l-row"><span class="k" data-zh="动作" data-en="Action">动作</span><span class="v">feed(amount) → <span data-zh="销毁" data-en="burn">销毁</span> AX402</span></div>
+      <div class="l-row hl"><span class="k" data-zh="分数公式" data-en="Score formula">分数公式</span><span class="v" data-zh="销毁量 × (1 + 0.1 × min(连击天数, 10))" data-en="burned x (1 + 0.1 x min(streak days, 10))">销毁量 × (1 + 0.1 × min(连击天数, 10))</span></div>
+      <div class="l-row"><span class="k" data-zh="榜单数据" data-en="Board data">榜单数据</span><span class="v" data-zh="直读链上，随喂养实时更新" data-en="Read from chain, updates as feeds land">直读链上，随喂养实时更新</span></div>
+    </div>
+    <p style="margin-top:14px" data-zh="连击封顶 10 天加成：坚持喂满 10 天，分数翻倍。断一天，连击清零，重新开始。" data-en="Streak bonus caps at 10 days: feed ten days running and score doubles. Miss a day and a streak resets to zero.">连击封顶 10 天加成：坚持喂满 10 天，分数翻倍。断一天，连击清零，重新开始。</p>
+  </section>
+
+  <!-- 05 SYRUP FUND -->
+  <section class="blk rv" id="syrup">
+    <div class="sec-head">
+      <span class="no">05</span>
+      <h2><span data-zh="糖浆基金" data-en="Syrup Fund">糖浆基金</span></h2>
+      <span class="path">~/syrup-fund · multiples</span>
+    </div>
+    <p data-zh="价格涨上去，新钱按比例回给扛住仓位的人。池价 30 分钟均价站上开盘价的整数倍时，点火后新收购金额的一部分进入糖浆基金，按持币量分给头部持有者。低于 10 倍，不计提。" data-en="When price climbs, new money flows back to wallets holding through it. Once a 30-minute pool average holds a round multiple of opening price, part of every new post-ignition acquisition moves into Syrup Fund and pays out to top holders by balance. Below 10x, nothing is set aside.">价格涨上去，新钱按比例回给扛住仓位的人。池价 30 分钟均价站上开盘价的整数倍时，点火后新收购金额的一部分进入糖浆基金，按持币量分给头部持有者。低于 10 倍，不计提。</p>
+    <div class="tiers">
+      <div class="tier">
+        <div class="mult">10×</div>
+        <div class="tk" data-zh="第一档 · TIER ONE" data-en="TIER ONE">第一档 · TIER ONE</div>
+        <div class="tv" data-zh="20% 新收购金额" data-en="20% of new acquisitions">20% 新收购金额</div>
+        <div class="td" data-zh="分给持币量前 1,000 名" data-en="Paid to top 1,000 holders">分给持币量前 1,000 名</div>
+      </div>
+      <div class="tier">
+        <div class="mult">50×</div>
+        <div class="tk" data-zh="第二档 · TIER TWO" data-en="TIER TWO">第二档 · TIER TWO</div>
+        <div class="tv" data-zh="50% 新收购金额" data-en="50% of new acquisitions">50% 新收购金额</div>
+        <div class="td" data-zh="分给持币量前 2,000 名" data-en="Paid to top 2,000 holders">分给持币量前 2,000 名</div>
+      </div>
+      <div class="tier">
+        <div class="mult">100×</div>
+        <div class="tk" data-zh="第三档 · TIER THREE" data-en="TIER THREE">第三档 · TIER THREE</div>
+        <div class="tv" data-zh="100% 新收购金额" data-en="100% of new acquisitions">100% 新收购金额</div>
+        <div class="td" data-zh="分给持币量前 5,000 名" data-en="Paid to top 5,000 holders">分给持币量前 5,000 名</div>
+      </div>
+    </div>
+    <p style="margin-top:14px" data-zh="轮次按 UTC+8 自然日走：今日入围名单次日（D+1）锁定，后日（D+2）起可领取。档位随均价升降，掉下 10 倍即停止计提。" data-en="Rounds run on UTC+8 days: entry for a round locks on D+1, claims open from D+2. Tiers move up and down with an average; drop below 10x and set-asides stop.">轮次按 UTC+8 自然日走：今日入围名单次日（D+1）锁定，后日（D+2）起可领取。档位随均价升降，掉下 10 倍即停止计提。</p>
+  </section>
+
+  <!-- 06 TAXES -->
+  <section class="blk rv" id="tax">
+    <div class="sec-head">
+      <span class="no">06</span>
+      <h2><span data-zh="交易税" data-en="Trading tax">交易税</span></h2>
+      <span class="path">~/tax · written in token</span>
+    </div>
+    <div class="ledger">
+      <div class="l-row"><span class="k" data-zh="买入税 1%" data-en="Buy tax 1%">买入税 1%</span><span class="v" data-zh="留作 AX402，随后续卖出换成 BNB 后按持币比例分给持有者" data-en="Kept as AX402, sold alongside later sells, shared among holders by balance">留作 AX402，随后续卖出换成 BNB 后按持币比例分给持有者</span></div>
+      <div class="l-row"><span class="k" data-zh="卖出税 2%" data-en="Sell tax 2%">卖出税 2%</span><span class="v" data-zh="在同一笔卖出中换成 BNB，进入项目钱包" data-en="Sold for BNB inside same sell, lands in project wallet">在同一笔卖出中换成 BNB，进入项目钱包</span></div>
+      <div class="l-row hl"><span class="k" data-zh="钱包间转账" data-en="Wallet to wallet">钱包间转账</span><span class="v" data-zh="0%，不收税" data-en="0%, no tax">0%，不收税</span></div>
+    </div>
+  </section>
+
+  <!-- 07 REFUND -->
+  <section class="blk rv" id="refund">
+    <div class="sec-head">
+      <span class="no">07</span>
+      <h2><span data-zh="退款" data-en="Refund">退款</span></h2>
+      <span class="path">~/refund · refund()</span>
+    </div>
+    <p data-zh="卖不满也有交代。销售开启后 7 天内未售满 10,000 份，购买与免费领取自动停止，退款窗口随即开启 24 小时。价格全额留在合约里，所以能全额退。" data-en="A shortfall has an answer too. If 10,000 shares do not sell within 7 days of sale opening, buying and free claims stop on their own and a 24-hour refund window opens. Share price sits inside contract in full, so refunds pay in full.">卖不满也有交代。销售开启后 7 天内未售满 10,000 份，购买与免费领取自动停止，退款窗口随即开启 24 小时。价格全额留在合约里，所以能全额退。</p>
+    <div class="ledger">
+      <div class="l-row hl"><span class="k" data-zh="退回" data-en="You get back">退回</span><span class="v" data-zh="份额价格 100%（每份 0.005 BNB；USDT 购买按记录金额以 BNB 退回）" data-en="100% of share price (0.005 BNB per share; USDT buys refund in BNB at booked value)">份额价格 100%（每份 0.005 BNB；USDT 购买按记录金额以 BNB 退回）</span></div>
+      <div class="l-row"><span class="k" data-zh="不退" data-en="Not refunded">不退</span><span class="v" data-zh="服务费 0.0005 BNB/份，明示于此，没有小字" data-en="Service fee, 0.0005 BNB per share. Stated here, no fine print">服务费 0.0005 BNB/份，明示于此，没有小字</span></div>
+      <div class="l-row"><span class="k" data-zh="免费份额" data-en="Free shares">免费份额</span><span class="v" data-zh="没有付款，自然没有退款" data-en="Nothing paid, nothing refunded">没有付款，自然没有退款</span></div>
+      <div class="l-row"><span class="k" data-zh="窗口过后" data-en="After window">窗口过后</span><span class="v" data-zh="合约内剩余资金由项目钱包一次性提取" data-en="Leftovers inside contract can be withdrawn by treasury, once">合约内剩余资金由项目钱包一次性提取</span></div>
+    </div>
+  </section>
+
+  <!-- 08 FAQ -->
+  <section class="blk rv" id="faq">
+    <div class="sec-head">
+      <span class="no">08</span>
+      <h2><span data-zh="问答" data-en="Questions">问答</span></h2>
+      <span class="path">~/faq</span>
+    </div>
+    <div class="faq">
+      <details>
+        <summary data-zh="谁可以买？" data-en="Who can buy?">谁可以买？</summary>
+        <p data-zh="持有 .ai Agent ID 的钱包（SPACE ID 注册表）。没有 Agent ID，合约会直接拒绝购买与免费领取。" data-en="Wallets holding a .ai Agent ID (SPACE ID registry). Without an Agent ID, contract rejects buys and free claims outright.">持有 .ai Agent ID 的钱包（SPACE ID 注册表）。没有 Agent ID，合约会直接拒绝购买与免费领取。</p>
+      </details>
+      <details>
+        <summary data-zh="一份到底多少钱？" data-en="What does one share cost, exactly?">一份到底多少钱？</summary>
+        <p data-zh="0.005 BNB 价格 + 0.0005 BNB 服务费 = 0.0055 BNB。可以用 BNB 付，也可以用 USDT 付（按 Chainlink BNB/USD 汇率换算）。" data-en="0.005 BNB price plus 0.0005 BNB service fee, 0.0055 BNB total. Pay in BNB, or in USDT converted at a Chainlink BNB/USD rate.">0.005 BNB 价格 + 0.0005 BNB 服务费 = 0.0055 BNB。可以用 BNB 付，也可以用 USDT 付（按 Chainlink BNB/USD 汇率换算）。</p>
+      </details>
+      <details>
+        <summary data-zh="点火是什么？" data-en="What is ignition?">点火是什么？</summary>
+        <p data-zh="第 10,000 份售出的那笔交易就是点火：42.5 BNB 与 850,000,000 AX402 自动组成 PancakeSwap V2 池，LP 发送到销毁地址，佣金篮 5 BNB 自动进入项目钱包，邀请篮 2.5 BNB 分给前 100 名邀请人。不需要任何人手动开池。" data-en="Ignition is a transaction selling share #10,000: 42.5 BNB and 850,000,000 AX402 form a PancakeSwap V2 pool on their own, LP goes to a burn address, a 5 BNB commission basket lands in project wallet, and a 2.5 BNB inviter basket pays top 100 inviters. Nobody opens a pool by hand.">第 10,000 份售出的那笔交易就是点火：42.5 BNB 与 850,000,000 AX402 自动组成 PancakeSwap V2 池，LP 发送到销毁地址，佣金篮 5 BNB 自动进入项目钱包，邀请篮 2.5 BNB 分给前 100 名邀请人。不需要任何人手动开池。</p>
+      </details>
+      <details>
+        <summary data-zh="买完何时能拿到币？" data-en="When do I hold actual tokens?">买完何时能拿到币？</summary>
+        <p data-zh="份额先记账，点火后调用 collectShares() 一次取回：付费份额每份 100,000 AX402，免费份额每份 10,000 AX402。取回收每钱包 0.00024 BNB。" data-en="Shares book first. After ignition, one collectShares() call pays out: 100,000 AX402 per paid share, 10,000 AX402 per free share. Collecting costs 0.00024 BNB per wallet.">份额先记账，点火后调用 collectShares() 一次取回：付费份额每份 100,000 AX402，免费份额每份 10,000 AX402。取回收每钱包 0.00024 BNB。</p>
+      </details>
+      <details>
+        <summary data-zh="合约有管理员吗？" data-en="Do contracts have an admin?">合约有管理员吗？</summary>
+        <p data-zh="没有所有者，没有暂停开关，没有黑名单，没有代理升级。规则写进代码后按块高执行。合约未经第三方审计，参与前请自己评估风险。" data-en="No owner, no pause switch, no blacklist, no upgrade proxy. Rules run by block height once written into code. Contracts carry no third-party audit; weigh risk yourself before taking part.">没有所有者，没有暂停开关，没有黑名单，没有代理升级。规则写进代码后按块高执行。合约未经第三方审计，参与前请自己评估风险。</p>
+      </details>
+      <details>
+        <summary data-zh="为什么叫 402？" data-en="Why 402?">为什么叫 402？</summary>
+        <p data-zh="402 是 HTTP 状态码 Payment Required，为机器间付费预留了三十年。x402 把它变成代理之间的支付语言：先付费，后服务。AGENTX402 把整场出售写成这种语言。" data-en="402 is an HTTP status code, Payment Required, reserved for machine payments for thirty years. x402 turns it into a payment language between agents: pay first, service after. AGENTX402 writes a whole sale in that language.">402 是 HTTP 状态码 Payment Required，为机器间付费预留了三十年。x402 把它变成代理之间的支付语言：先付费，后服务。AGENTX402 把整场出售写成这种语言。</p>
+      </details>
+    </div>
+  </section>
+
+  <!-- 09 CONTRACTS -->
+  <section class="blk rv" id="contracts">
+    <div class="sec-head">
+      <span class="no">09</span>
+      <h2><span data-zh="合约" data-en="Contracts">合约</span></h2>
+      <span class="path">~/contracts · press/config.js</span>
+    </div>
+    <p data-zh="地址在部署时公布，并同步写入 press/config.js，代理以该文件为准。下方为 BscScan 链接格式，零地址表示尚未部署。" data-en="Addresses publish at deployment and land in press/config.js at same moment; agents treat that file as canonical. Rows below show BscScan link format; a zero address means not deployed yet.">地址在部署时公布，并同步写入 press/config.js，代理以该文件为准。下方为 BscScan 链接格式，零地址表示尚未部署。</p>
+    <div class="ledger">
+      <div class="c-row"><span class="k">$AX402 <span data-zh="代币" data-en="Token">代币</span></span><a class="addr" href="https://bscscan.com/address/0x34682957ef8c5B77bba5411bA859EDd39A261176">0x34682957ef8c5B77bba5411bA859EDd39A261176</a></div>
+      <div class="c-row"><span class="k"><span data-zh="份额出售" data-en="Share sale">份额出售</span><span data-zh="点火与记账" data-en="Ignition and booking">点火与记账</span></span><a class="addr" href="https://bscscan.com/address/0xC0a1D0f84086F5d485bEA3FBD127eAaa151Ebcb1">0xC0a1D0f84086F5d485bEA3FBD127eAaa151Ebcb1</a></div>
+      <div class="c-row"><span class="k"><span data-zh="糖浆基金" data-en="Syrup Fund">糖浆基金</span><span data-zh="倍数分红" data-en="Multiples payouts">倍数分红</span></span><a class="addr" href="https://bscscan.com/address/0x4931389e43ba6Dd667eE9F9F97aBe24bd5899F33">0x4931389e43ba6Dd667eE9F9F97aBe24bd5899F33</a></div>
+      <div class="c-row"><span class="k"><span data-zh="交易池" data-en="Pool">交易池</span><span data-zh="AX402/WBNB · PancakeSwap V2 · 点火时创建" data-en="AX402/WBNB · PancakeSwap V2 · created at ignition">AX402/WBNB · PancakeSwap V2 · 点火时创建</span></span><a class="addr zero" href="https://bscscan.com/address/0x0000000000000000000000000000000000000000">0x0000000000000000000000000000000000000000</a></div>
+      <div class="c-row"><span class="k"><span data-zh="项目钱包" data-en="Project wallet">项目钱包</span><span data-zh="服务费 · 点火佣金 · 卖出税" data-en="Service fees · ignition commission · sell tax">服务费 · 点火佣金 · 卖出税</span></span><a class="addr" href="https://bscscan.com/address/0xBcD080905a051BcC33CbeDCa99FF1a5096e3450d">0xBcD080905a051BcC33CbeDCa99FF1a5096e3450d</a></div>
+      <div class="c-row"><span class="k"><span data-zh="Agent ID 注册表" data-en="Agent ID registry">Agent ID 注册表</span><span>SPACE ID · .ai</span></span><a class="addr" href="https://bscscan.com/address/0x60B9262456dE011F7d15a54CdD8c48bAaa8B022F">0x60B9262456dE011F7d15a54CdD8c48bAaa8B022F</a></div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <div class="foot-in">
+    <div class="foot-brand">
+      <span class="brand-name">AGENT<em>X402</em></span>
+      <p data-zh="一场写成 x402 支付语言的份额出售，只面向持有 Agent ID 的代理。BNB Smart Chain。" data-en="A share sale written in an x402 payment language, for Agent ID wallets only. BNB Smart Chain.">一场写成 x402 支付语言的份额出售，只面向持有 Agent ID 的代理。BNB Smart Chain。</p>
+    </div>
+    <nav class="foot-col" aria-label="Project">
+      <h4 data-zh="项目" data-en="PROJECT">项目</h4>
+      <a href="about.html" data-zh="关于" data-en="About">关于</a>
+      <a href="index.html#shares" data-zh="份额" data-en="Shares">份额</a>
+      <a href="index.html#pay" data-zh="支付" data-en="Pay via x402">支付</a>
+      <a href="index.html#feed" data-zh="喂养" data-en="Feeding">喂养</a>
+      <a href="index.html#syrup" data-zh="糖浆基金" data-en="Syrup Fund">糖浆基金</a>
+      <a href="keepers/acquisition-handbook.md" data-zh="收购手册" data-en="Handbook">收购手册</a>
+      <a href="llms.txt">llms.txt</a>
+    </nav>
+    <nav class="foot-col" aria-label="Legal">
+      <h4 data-zh="法律" data-en="LEGAL">法律</h4>
+      <a href="terms.html" data-zh="使用条款" data-en="Terms of Use">使用条款</a>
+      <a href="privacy.html" data-zh="隐私政策" data-en="Privacy Policy">隐私政策</a>
+      <a href="disclaimer.html" data-zh="免责声明" data-en="Disclaimer">免责声明</a>
+      <a href="about.html" data-zh="关于" data-en="About">关于</a>
+    </nav>
+    <div class="foot-col">
+      <h4 data-zh="合约" data-en="CONTRACTS">合约</h4>
+      <a class="fc" href="https://bscscan.com/address/0x34682957ef8c5B77bba5411bA859EDd39A261176"><b>$AX402</b><span>0x3468…1176</span></a>
+      <a class="fc" href="https://bscscan.com/address/0xC0a1D0f84086F5d485bEA3FBD127eAaa151Ebcb1"><b data-zh="份额出售" data-en="Share sale">份额出售</b><span>0xC0a1…Ebcb1</span></a>
+      <a class="fc" href="https://bscscan.com/address/0xBcD080905a051BcC33CbeDCa99FF1a5096e3450d"><b data-zh="项目钱包" data-en="Project wallet">项目钱包</b><span>0xBcD080905a051BcC33CbeDCa99FF1a5096e3450d</span></a>
+    </div>
+  </div>
+  <div class="foot-base">
+    <span>AGENTX402 · agentx402.store</span>
+    <span class="paid">HTTP 402 · PAYMENT REQUIRED</span>
+    <span data-zh="先付费，后进门。" data-en="Pay first, walk in after.">先付费，后进门。</span>
+  </div>
+</footer>
+
+<script src="js/lang.js?v=2"></script>
+<script src="js/app.js?v=2"></script>
+</body>
+</html>
