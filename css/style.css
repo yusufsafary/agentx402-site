@@ -77,15 +77,11 @@ h2 .grn{font-style:italic;color:var(--acc-2)}
 @keyframes dbsheen{0%,55%{left:-70%}85%,100%{left:130%}}
 
 /* specimen card */
-.specimen{background:#1d130d;border-radius:30px;padding:14px 14px 0;box-shadow:0 40px 80px rgba(29,19,13,.35),inset 0 1px 0 rgba(255,250,243,.07);position:relative;animation:artFloat 9s ease-in-out infinite}
-@keyframes artFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
-.sp-pin{position:absolute;top:-13px;left:50%;transform:translateX(-50%);width:88px;height:26px;border-radius:999px;background:linear-gradient(180deg,var(--acc),var(--acc-2));box-shadow:0 8px 18px rgba(20,108,67,.4),inset 0 1px 0 rgba(255,255,255,.5);z-index:3;animation:pinSway 9s ease-in-out infinite}
-@keyframes pinSway{0%,100%{transform:translateX(-50%) rotate(-1.6deg)}50%{transform:translateX(-50%) rotate(1.6deg)}}
+.specimen{background:#1d130d;border-radius:30px;padding:14px 14px 0;box-shadow:0 40px 80px rgba(29,19,13,.35),inset 0 1px 0 rgba(255,250,243,.07);position:relative}
+.sp-pin{position:absolute;top:-13px;left:50%;transform:translateX(-50%);width:88px;height:26px;border-radius:999px;background:linear-gradient(180deg,var(--acc),var(--acc-2));box-shadow:0 8px 18px rgba(20,108,67,.4),inset 0 1px 0 rgba(255,255,255,.5);z-index:3}
 .sp-frame{border-radius:20px;overflow:hidden;position:relative;aspect-ratio:1;background:#17100b}
-.art-img{width:100%;height:100%;object-fit:cover;display:block;animation:artZoom 26s ease-in-out infinite alternate}
-@keyframes artZoom{from{transform:scale(1.02)}to{transform:scale(1.1)}}
-.art-sheen{position:absolute;inset:0;background:linear-gradient(115deg,transparent 30%,rgba(53,195,125,.13) 48%,transparent 62%);background-size:250% 100%;animation:sheenMove 7s ease-in-out infinite;pointer-events:none}
-@keyframes sheenMove{0%,55%{background-position:120% 0}90%,100%{background-position:-40% 0}}
+.art-img{width:100%;height:100%;object-fit:cover;display:block}
+.art-sheen{position:absolute;inset:0;background:linear-gradient(115deg,transparent 30%,rgba(53,195,125,.13) 48%,transparent 62%);background-size:250% 100%;background-position:120% 0;pointer-events:none}
 .sp-foot{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:10px;padding:16px 8px 18px;color:var(--paper)}
 .sp-foot span{display:flex;flex-direction:column;gap:2px;min-width:0}
 .sp-foot i{font-style:normal;font-size:10.5px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:rgba(251,243,232,.45)}
@@ -236,6 +232,7 @@ h2 .grn{font-style:italic;color:var(--acc-2)}
   .foot-in{grid-template-columns:1fr}
   .faq summary{font-size:17px}
   .sec-head .path{margin-left:0}
+  .req{font-size:10px;letter-spacing:.07em;padding:6px 12px;white-space:nowrap}
 }
 @media(prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.01ms !important;transition-duration:.01ms !important}
